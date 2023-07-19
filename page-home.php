@@ -8,60 +8,45 @@
       <h2 class="subtitulo"><?php the_title(); ?></h2>
 
       <div class="menu-item grid-8">
-        <h2><?php the_field2('comida'); ?> </h2>
-
-        <h2><?php echo get_post_meta(get_the_id(), 'comida', true); ?></h2>
+        <h2>Peixes</h2>
         <ul>
-          <li>
-            <span><sup>R$</sup>129</span>
-            <div>
-              <h3>Salmão Grelhado no Forno</h3>
-              <p>Pequenas tiras de salmão feitas no alho e óleo</p>
-            </div>
-          </li>
-          <li>
-            <span><sup>R$</sup>89</span>
-            <div>
-              <h3>Sardinha Frita na Cerveja</h3>
-              <p>Sardinhas escolhidas a dedo e fritas em cerveja premium</p>
-            </div>
-          </li>
-          <li>
-            <span><sup>R$</sup>159</span>
-            <div>
-              <h3>Camarão com Catupiry</h3>
-              <p>Grandes camarões grelhados, servidos ao molho de camarão com catupiry</p>
-            </div>
-          </li>
+          <?php
+          $peixes = get_field2('peixes');
+          if (isset($peixes)) {
+            foreach ($peixes as $peixe) {
+          ?>
+              <li>
+                <span><sup>R$</sup><?php echo $peixe['preco']; ?></span>
+                <div>
+                  <h3><?php echo $peixe['nome']; ?></h3>
+                  <p><?php echo $peixe['descricao']; ?></p>
+                </div>
+              </li>
+          <?php }
+          } ?>
         </ul>
       </div>
 
       <div class="menu-item grid-8">
         <h2>Carnes</h2>
         <ul>
-          <li>
-            <span><sup>R$</sup>129</span>
-            <div>
-              <h3>Picanha Nobre no Alho</h3>
-              <p>Pequenas tiras de salmão feitas no alho e óleo</p>
-            </div>
-          </li>
-          <li>
-            <span><sup>R$</sup>89</span>
-            <div>
-              <h3>Cupim no Bafo</h3>
-              <p>Sardinhas escolhidas a dedo e fritas em cerveja premium</p>
-            </div>
-          </li>
-          <li>
-            <span><sup>R$</sup>159</span>
-            <div>
-              <h3>Hamburger Artesanal Rest</h3>
-              <p>Grandes camarões grelhados, servidos ao molho de camarão com catupiry</p>
-            </div>
-          </li>
+          <?php
+          $carnes = get_field2('carnes');
+          if (isset($carnes)) {
+            foreach ($carnes as $carne) {
+          ?>
+              <li>
+                <span><sup>R$</sup><?php echo $carne['preco']; ?></span>
+                <div>
+                  <h3><?php echo $carne['nome']; ?></h3>
+                  <p><?php echo $carne['descricao']; ?></p>
+                </div>
+              </li>
+          <?php }
+          } ?>
         </ul>
       </div>
+
 
     </section>
 <?php endwhile;

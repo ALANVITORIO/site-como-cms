@@ -27,20 +27,10 @@
     <h1><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/rest.png" alt="Rest"></h1>
 
     <p>Rua Marechal 29 – Copacabana – Rj</p>
-    <!-- 			<?php $sobre = get_page_by_title('Sobre')->ID; ?>
-			<p><?php echo get_post_meta($sobre, 'historia', true); ?></p> -->
 
-    <!-- 			<?php
-                $home = get_page_by_title('Menu da Semana')->ID;
-                $post_hello = 1;
-                ?> -->
-
-
-    <!-- 			<p><?php the_field2('comida', $home); ?></p>
-			<p><?php the_field2('comida', $post_hello); ?></p> -->
-    <!-- 			<p><?php echo get_post_meta($home, 'comida', true); ?></p>
-			<p><?php echo get_post_meta($post_hello, 'comida', true); ?></p> -->
-
-    <?php $contato = get_page_by_title('Contato')->ID; ?>
-    <p class="telefone"><?php the_field2('telefone', $contato); ?></p>
+    <?php
+    $contato = get_page_by_title('Entre em Contato')->ID;
+    $telefone = get_field2('telefone', $contato);
+    ?>
+    <p class="telefone"><?php echo $telefone; ?></p>
   </header>
